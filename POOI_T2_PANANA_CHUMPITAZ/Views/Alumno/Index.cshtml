@@ -1,0 +1,73 @@
+﻿@model IEnumerable<POOI_T2_PANANA_CHUMPITAZ.Models.Alumno>
+
+@{
+    ViewBag.Title = "Lista de Alumnos";
+}
+
+<h2>Lista de Alumnos</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success" id="mensaje">
+        @TempData["Mensaje"]
+    </div>
+}
+
+<p>
+    @Html.ActionLink("Agregar Alumno", "Agregar", null,
+        new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>DNI</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Carrera</th>
+            <th>Ciclo</th>
+            <th>Operaciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var alumno in Model)
+        {
+            <tr>
+                <td>@alumno.dni</td>
+                <td>@alumno.nombres</td>
+                <td>@alumno.apellidos</td>
+                <td>@alumno.carrera</td>
+                <td>@alumno.ciclo</td>
+
+                <td>
+                    @Html.ActionLink("Detalles", "Detalles",
+                        new { dni = alumno.dni },
+                        new { @class = "btn btn-info btn-sm" })
+
+                    @Html.ActionLink("Actualizar", "Actualizar",
+                        new { dni = alumno.dni },
+                        new { @class = "btn btn-warning btn-sm" })
+
+                    @Html.ActionLink("Eliminar", "Eliminar",
+                        new { dni = alumno.dni },
+                        new
+                        {
+                            @class = "btn btn-danger btn-sm",
+                            onclick = "return confirm('¿Está seguro de eliminar este alumno?');"
+                        })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+        setTimeout(function () {
+            var mensaje = document.getElementById("mensaje");
+
+            if (mensaje) {
+                mensaje.style.display = "none";
+            }
+        }, 5000);
+</script>

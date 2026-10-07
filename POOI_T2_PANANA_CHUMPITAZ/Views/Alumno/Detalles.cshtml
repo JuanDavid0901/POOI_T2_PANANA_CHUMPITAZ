@@ -1,0 +1,39 @@
+﻿@model POOI_T2_PANANA_CHUMPITAZ.Models.Alumno
+
+@{
+    ViewBag.Title = "Detalles del Alumno";
+}
+
+<h2>Detalles del Alumno</h2>
+
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+
+        <dt>DNI</dt>
+        <dd>@Model.dni</dd>
+
+        <dt>Nombres</dt>
+        <dd>@Model.nombres</dd>
+
+        <dt>Apellidos</dt>
+        <dd>@Model.apellidos</dd>
+
+        <dt>Carrera</dt>
+        <dd>@Model.carrera</dd>
+
+        <dt>Ciclo</dt>
+        <dd>@Model.ciclo</dd>
+
+    </dl>
+</div>
+
+<br />
+
+@Html.ActionLink(
+    "Regresar",
+    "Index",
+    null,
+    new { @class = "btn btn-secondary" }
+)

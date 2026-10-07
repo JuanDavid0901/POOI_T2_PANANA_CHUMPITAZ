@@ -1,0 +1,62 @@
+﻿@model POOI_T2_PANANA_CHUMPITAZ.Models.Alumno
+
+@{
+    ViewBag.Title = "Actualizar Alumno";
+}
+
+<h2>Actualizar Alumno</h2>
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Mensaje
+    </div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("dniOriginal", Model.dni)
+
+    <div class="form-group">
+        <label>DNI</label>
+        @Html.TextBoxFor(model => model.dni,
+            new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Nombres</label>
+        @Html.TextBoxFor(model => model.nombres,
+            new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Apellidos</label>
+        @Html.TextBoxFor(model => model.apellidos,
+            new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Carrera</label>
+        @Html.TextBoxFor(model => model.carrera,
+            new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Ciclo</label>
+        @Html.TextBoxFor(model => model.ciclo,
+            new { @class = "form-control", type = "number" })
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-warning">
+        Actualizar
+    </button>
+
+    @Html.ActionLink(
+        "Regresar",
+        "Index",
+        null,
+        new { @class = "btn btn-secondary" }
+    )
+}

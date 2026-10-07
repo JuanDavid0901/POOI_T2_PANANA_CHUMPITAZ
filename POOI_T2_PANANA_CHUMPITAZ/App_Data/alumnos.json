@@ -1,0 +1,16 @@
+[
+  {
+    "dni": "75353523",
+    "nombres": "Juan David",
+    "apellidos": "Panana Chumpitaz",
+    "carrera": "Informatica",
+    "ciclo": 2
+  },
+  {
+    "dni": "76543210",
+    "nombres": "Jose",
+    "apellidos": "Sanchez",
+    "carrera": "Camionero",
+    "ciclo": 4
+  }
+]
